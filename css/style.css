@@ -1,0 +1,31 @@
+.slimage-description {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+
+.slimage-setting {
+    opacity: 0.2;
+    pointer-events: none;
+    transition: all 300ms ease;
+}
+.slimage-setting.disabled {
+    display: none;
+}
+.slimage-setting.active {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.slimage-setting input[type="number"] {
+    max-width: 60px;
+}
+
+.slimage-setting input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+.slimage-check input:disabled + label,
+.slimage-setting input:disabled + label {
+    color: red;
+}
