@@ -6,8 +6,6 @@
  * @since 1.0
  */
 
-// @todo Add option to override compression settings per image
-
 /**
  * Add all sections, fields and settings during admin_init
  */

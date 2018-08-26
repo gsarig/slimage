@@ -20,10 +20,13 @@ function slimage_compressor( $metadata, $attachment_id ) {
 
 	$enabled = slimage_option( 'slimage_enable_compression' );
 	if ( isset( $enabled ) && ! empty( $enabled ) && ( slimage_program_exists( 'jpegoptim' ) || slimage_program_exists( 'optipng' ) ) ) {
-		$jl = slimage_option( 'slimage_jpegoptim_level' );
-		$ol = slimage_option( 'slimage_optipng_level' );
-		$je = slimage_option( 'slimage_jpegoptim_extras' );
-		$oe = slimage_option( 'slimage_optipng_extras' );
+		$override   = get_post_meta( $attachment_id, 'slimage_override', true );
+		$q_override = get_post_meta( $attachment_id, 'slimage_quality', true );
+		$e_override = get_post_meta( $attachment_id, 'slimage_extras', true );
+		$jl         = ( $override === '1' && $q_override ) ? $q_override : slimage_option( 'slimage_jpegoptim_level' );
+		$ol         = ( $override === '1' && $q_override ) ? $q_override : slimage_option( 'slimage_optipng_level' );
+		$je         = ( $override === '1' && $e_override ) ? $e_override : slimage_option( 'slimage_jpegoptim_extras' );
+		$oe         = ( $override === '1' && $e_override ) ? $e_override : slimage_option( 'slimage_optipng_extras' );
 		// Get the full image path.
 		$original_path = realpath( get_attached_file( $attachment_id, true ) );
 		// Extract the full image filename.

@@ -21,7 +21,7 @@ load_plugin_textdomain( 'slimage', false, basename( dirname( __FILE__ ) ) . '/la
 // Enqueue scripts and styles.
 add_action( 'admin_enqueue_scripts', 'slimage_scripts' );
 function slimage_scripts( $hook ) {
-	if ( 'options-media.php' != $hook ) {
+	if ( 'options-media.php' != $hook && 'post.php' != $hook ) {
 		return;
 	}
 	wp_enqueue_style( 'slimage-styles', plugins_url( '/css/style.css', __FILE__ ) );
@@ -37,5 +37,13 @@ if ( is_admin() ) {
 	require_once dirname( __FILE__ ) . '/inc/options.php';
 }
 
+// Set the custom fields of the single attachments.
+require_once dirname( __FILE__ ) . '/inc/fields.php';
+
 // Compress thumbnail sizes.
 include_once dirname( __FILE__ ) . '/inc/compressor.php';
+
+add_action( 'wp_head', 'test' );
+function test() {
+	slash_dump(get_post_meta( 7, 'slimage_quality', true ));
+}

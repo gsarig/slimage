@@ -8,19 +8,23 @@
     pointer-events: none;
     transition: all 300ms ease;
 }
+
 .slimage-setting.disabled {
     display: none;
 }
+
 .slimage-setting.active {
     pointer-events: auto;
     opacity: 1;
 }
 
-.slimage-setting input[type="number"] {
+.slimage-setting input[type="number"],
+.compat-field-slimage_quality input[type="number"] {
     max-width: 60px;
 }
 
-.slimage-setting input[type="text"] {
+.slimage-setting input[type="text"],
+.compat-field-slimage_extras input[type="text"] {
     width: 100%;
     max-width: 400px;
 }
@@ -28,4 +32,56 @@
 .slimage-check input:disabled + label,
 .slimage-setting input:disabled + label {
     color: red;
+}
+
+.compat-field-slimage_override th,
+.compat-field-slimage_override td {
+    padding: 1rem 0;
+}
+
+.compat-field-slimage_quality,
+.compat-field-slimage_extras {
+    display: none;
+}
+tr[class^='compat-field-slimage_'] th {
+    vertical-align: top;
+    text-align: left;
+}
+tr[class^='compat-field-slimage_'] .warning {
+    background: #fff;
+    border-left: 3px solid red;
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    margin-top: 1rem;
+}
+.compat-field-slimage_quality.active,
+.compat-field-slimage_extras.active {
+    display: table-row;
+}
+
+.compat-field-slimage_quality th,
+.compat-field-slimage_quality td {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+
+.compat-field-slimage_quality th,
+.compat-field-slimage_extras th {
+    border-left: 1px solid #ccc;
+    padding-left: 1rem;
+}
+
+.compat-field-slimage_quality td,
+.compat-field-slimage_extras td {
+    border-right: 1px solid #ccc;
+    padding-right: 1rem;
+}
+
+.compat-field-slimage_extras th,
+.compat-field-slimage_extras td {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
 }
