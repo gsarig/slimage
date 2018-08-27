@@ -12,7 +12,13 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit();
 }
 
-$options = slimage_option();
+global $wpdb;
+
+// Remove main options
+$options = Slimage\Helper::option();
 foreach ( $options as $option => $value ) {
 	delete_option( $option );
 }
+
+// Remove post_meta
+$wpdb->query( "DELETE FROM {$wpdb->prefix}postmeta WHERE meta_key REGEXP 'slimage_'" );
