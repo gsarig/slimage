@@ -13,7 +13,7 @@ try {
 		$prefix = 'Slimage';
 
 		// base directory for the namespace prefix
-		$base_dir = plugin_dir_path( __DIR__ ) . 'classes/';
+		$base_dir = plugin_dir_path( __DIR__ ) . 'includes/';
 
 		// does the class use the namespace prefix?
 		$len = strlen( $prefix );

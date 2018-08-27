@@ -5,6 +5,7 @@
  * @package Slimage
  * @since 1.0
  */
+
 namespace Slimage;
 
 
@@ -12,7 +13,7 @@ class Options {
 
 	public function __construct() {
 		add_action( 'admin_init', [ $this, 'init' ] );
-
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueues' ] );
 	}
 
 	/**
@@ -219,5 +220,13 @@ class Options {
 	            ' . $disabled . '
 	            class="text" />
 	            <label for="slimage_optipng_extras">' . $label . '</label>';
+	}
+
+	public function enqueues( $hook ) {
+		if ( 'options-media.php' != $hook && 'post.php' != $hook ) {
+			return;
+		}
+		wp_enqueue_style( 'slimage-styles', plugins_url( '/admin/css/styles.css', dirname( __FILE__ ) ), [], SLIMAGE_VERSION );
+		wp_enqueue_script( 'slimage-scripts', plugins_url( '/admin/js/scripts.js', dirname( __FILE__ ) ), [], SLIMAGE_VERSION, true );
 	}
 }

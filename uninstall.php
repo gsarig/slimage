@@ -6,19 +6,15 @@
  * @since 1.0
  */
 
-
-// If uninstall is not called from WordPress, exit
+// if uninstall.php is not called by WordPress, die
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-	exit();
+	die;
 }
 
 global $wpdb;
 
-// Remove main options
-$options = Slimage\Helper::option();
-foreach ( $options as $option => $value ) {
-	delete_option( $option );
-}
+// Remove options
+$wpdb->query( "DELETE FROM {$wpdb->prefix}options WHERE option_name REGEXP 'slimage_'" );
 
 // Remove post_meta
 $wpdb->query( "DELETE FROM {$wpdb->prefix}postmeta WHERE meta_key REGEXP 'slimage_'" );

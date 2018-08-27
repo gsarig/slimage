@@ -1,3 +1,6 @@
+.media-modal tr[class^='compat-field-slimage_'] {
+    display: none;
+}
 .slimage-description {
     border-top: 1px solid #ccc;
     padding-top: 1rem;

@@ -13,37 +13,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Slimage' ) ) :
-
-	define( 'SLIMAGE_VERSION', '1.0' );
+define( 'SLIMAGE_VERSION', '1.0' );
 
 // Localize the plugin.
-	add_action( 'init', 'slimage_load_textdomain' );
-	function slimage_load_textdomain() {
-		load_plugin_textdomain( 'slimage', false, basename( dirname( __FILE__ ) ) . '/languages' );
-	}
+add_action( 'init', 'slimage_load_textdomain' );
+function slimage_load_textdomain() {
+	load_plugin_textdomain( 'slimage', false, basename( dirname( __FILE__ ) ) . '/languages' );
+}
 
 // Add settings link on plugin page.
-	add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'slimage_settings_links' );
-	function slimage_settings_links( $links ) {
-		$links[] = '<a href="' . admin_url( 'options-media.php' ) . '">' . __( 'Settings', 'slimage' ) . '</a>';
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'slimage_settings_links' );
+function slimage_settings_links( $links ) {
+	$links[] = '<a href="' . admin_url( 'options-media.php' ) . '">' . __( 'Settings', 'slimage' ) . '</a>';
 
-		return $links;
-	}
+	return $links;
+}
 
 // Autoload Classes.
-	include_once dirname( __FILE__ ) . '/inc/autoloader.php';
-
-// Enqueue scripts and styles.
-	include_once dirname( __FILE__ ) . '/inc/enqueues.php';
+include_once dirname( __FILE__ ) . '/includes/autoloader.php';
 
 // Display the plugin's options at the backend.
-	new \Slimage\Options();
+new \Slimage\Options();
 
 // Add the fields of a single attachment.
-	new \Slimage\Fields();
+new \Slimage\Fields();
 
 // Run the compressor.
-	new \Slimage\Compressor();
-
-endif; // end of class_exists() check.
+new \Slimage\Compressor();
