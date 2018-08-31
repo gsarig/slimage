@@ -8,17 +8,21 @@
 (function () {
     'use strict';
 
-    // Toggle fields on the Main Settings page.
-    toggleFields(document.getElementById('slimage_enable_compression'));
+    toggleActions();
 
-    // Toggle the override fields on the single attachment page.
-    const overrideToggler = document.querySelector('.compat-field-slimage_override input[type="checkbox"]');
-    if (overrideToggler) {
-        const overrideValue = document.querySelector('.compat-field-slimage_override input[type="number"]');
-        toggleFields(overrideToggler, '.compat-field-slimage_quality, .compat-field-slimage_extras');
-        overrideToggler.addEventListener('change', function () {
-            overrideValue.value = overrideToggler.checked ? 1 : 0;
-        });
+    function toggleActions() {
+        // Toggle fields on the Main Settings page.
+        toggleFields(document.getElementById('slimage_enable_compression'));
+
+        // Toggle the override fields on the single attachment page.
+        const overrideToggler = document.querySelector('.compat-field-slimage_override input[type="checkbox"]');
+        if (overrideToggler) {
+            const overrideValue = document.querySelector('.compat-field-slimage_override input[type="number"]');
+            toggleFields(overrideToggler, '.compat-field-slimage_quality, .compat-field-slimage_extras');
+            overrideToggler.addEventListener('change', function () {
+                overrideValue.value = overrideToggler.checked ? 1 : 0;
+            });
+        }
     }
 
     // Toggle the fields.
@@ -45,4 +49,5 @@
             }
         }
     }
+
 })();

@@ -17,13 +17,13 @@ class Compressor {
 	public function compress( $metadata, $attachment_id ) {
 		$enabled = Helper::option( 'slimage_enable_compression' );
 		if ( isset( $enabled ) && ! empty( $enabled ) && ( Helper::serverSupports( 'jpegoptim' ) || Helper::serverSupports( 'optipng' ) ) ) {
-			$override   = get_post_meta( $attachment_id, 'slimage_override', true );
-			$q_override = get_post_meta( $attachment_id, 'slimage_quality', true );
-			$e_override = get_post_meta( $attachment_id, 'slimage_extras', true );
-			$jl         = ( $override === '1' && $q_override ) ? $q_override : Helper::option( 'slimage_jpegoptim_level' );
-			$ol         = ( $override === '1' && $q_override ) ? $q_override : Helper::option( 'slimage_optipng_level' );
-			$je         = ( $override === '1' && $e_override ) ? $e_override : Helper::option( 'slimage_jpegoptim_extras' );
-			$oe         = ( $override === '1' && $e_override ) ? $e_override : Helper::option( 'slimage_optipng_extras' );
+			$has_override     = get_post_meta( $attachment_id, 'slimage_override', true );
+			$quality_override = get_post_meta( $attachment_id, 'slimage_quality', true );
+			$extras_override  = get_post_meta( $attachment_id, 'slimage_extras', true );
+			$jpegoptim_level  = ( $has_override === '1' && $quality_override ) ? $quality_override : Helper::option( 'slimage_jpegoptim_level' );
+			$jpegoptim_extras = ( $has_override === '1' && $extras_override ) ? $extras_override : Helper::option( 'slimage_jpegoptim_extras' );
+			$optipng_level    = ( $has_override === '1' && $quality_override ) ? $quality_override : Helper::option( 'slimage_optipng_level' );
+			$optipng_extras   = ( $has_override === '1' && $extras_override ) ? $extras_override : Helper::option( 'slimage_optipng_extras' );
 			// Get the full image path.
 			$original_path = realpath( get_attached_file( $attachment_id, true ) );
 			// Extract the full image filename.
@@ -37,14 +37,14 @@ class Compressor {
 					$format     = $meta['mime-type'];
 
 					if ( $format === 'image/jpeg' && Helper::serverSupports( 'jpegoptim' ) ) {
-						$command = 'jpegoptim --max=' . $jl . ' ' . $je . ' ' . $thumb_path;
+						$command = Helper::programPath( 'jpegoptim' ) . ' --max=' . $jpegoptim_level . ' ' . $jpegoptim_extras . ' ' . $thumb_path;
 					} elseif ( in_array( $format, [
 							'image/png',
 							'image/bmp',
 							'image/gif',
 							'image/tiff'
 						] ) && Helper::serverSupports( 'optipng' ) ) {
-						$command = 'optipng -o' . $ol . ' ' . $oe . ' ' . $thumb_path;
+						$command = Helper::programPath( 'optipng' ) . ' -o' . $optipng_level . ' ' . $optipng_extras . ' ' . $thumb_path;
 					} else {
 						$command = null;
 					}

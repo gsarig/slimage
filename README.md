@@ -4,6 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: compress, image, optimization, optimize, optipng, jpegoptim, lossy, lossless
 Requires at least: 4.8
 Tested up to: 4.9.8
+Requires PHP: 5.6
 Stable tag: 1.0
 License: GPLv2 or later
 
@@ -60,8 +61,7 @@ The default extra arguments should be fine for most cases. If you really want to
 Yes. But you might have to make some compromise on the quality of your photos. For JPEGs, setting the quality level to 50 or 60 is enough to pass the test on most cases. Depending on the complexity of the image, though, on some cases the quality loss might be visible to the naked eye. 
 
 == Screenshots ==
-
-
+1. Screenshot 1 description
 
 == Changelog ==
 

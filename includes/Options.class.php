@@ -37,9 +37,21 @@ class Options {
 			'media',
 			'slimage_setting_section',
 			[
-				'class' => 'slimage-check'
+				'class' => 'slimage-check',
 			]
 		);
+
+		add_settings_field(
+			'slimage_server_path',
+			__( 'Server path for jpegoptim & optipng', 'slimage' ),
+			[ $this, 'serverPath' ],
+			'media',
+			'slimage_setting_section',
+			[
+				'class' => 'slimage-server-path' . ( Helper::serverSupports( 'jpegoptim' ) || Helper::serverSupports( 'optipng' ) ? ' hidden' : '' ),
+			]
+		);
+
 		add_settings_field(
 			'slimage_jpegoptim_level',
 			__( 'Quality of JPEG images (0-100)', 'slimage' ),
@@ -87,11 +99,18 @@ class Options {
 		// Register our setting so that $_POST handling is done for us and
 		// our callback function just has to echo the <input>
 		register_setting( 'media', 'slimage_enable_compression' );
+		register_setting( 'media', 'slimage_server_path', [ $this, 'server_path_sanitize' ] );
 		register_setting( 'media', 'slimage_jpegoptim_level' );
 		register_setting( 'media', 'slimage_jpegoptim_extras' );
 		register_setting( 'media', 'slimage_optipng_level' );
 		register_setting( 'media', 'slimage_optipng_extras' );
 
+	}
+
+	public function server_path_sanitize( $input ) {
+		$output = preg_replace( '/[\/]/', '%', $input );
+
+		return $output;
 	}
 
 
@@ -141,6 +160,17 @@ class Options {
 				<label for="slimage_enable_compression">' . $label . '</label>';
 	}
 
+	public function serverPath() {
+		$label = __( 'If you are certain that jpegoptim and optipng are installed on your server but you still have no access to the plugin\'s options, maybe they are located on a different path (it can happen on shared servers). If this is the case, declare the path here like for example: <code>/home/username/bin/</code>.', 'slimage' );
+		$val   = preg_replace( '/%/', '/', Helper::option( 'slimage_server_path' ) );
+		echo '<input 
+	            name="slimage_server_path" 
+	            id="slimage_server_path" 
+	            type="text" 
+	            value="' . $val . '"
+	            class="text" />
+	            <label for="slimage_server_path">' . $label . '</label>';
+	}
 
 	public function jpegoptimLevel() {
 		if ( Helper::serverSupports( 'jpegoptim' ) ) {
@@ -223,7 +253,7 @@ class Options {
 	}
 
 	public function enqueues( $hook ) {
-		if ( 'options-media.php' != $hook && 'post.php' != $hook ) {
+		if ( 'options-media.php' != $hook && 'post.php' != $hook && 'upload.php' !== $hook ) {
 			return;
 		}
 		wp_enqueue_style( 'slimage-styles', plugins_url( '/admin/css/styles.css', dirname( __FILE__ ) ), [], SLIMAGE_VERSION );
