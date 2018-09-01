@@ -31,8 +31,10 @@ To use the plugin you need to have <code>jpegoptim</code> and <code>optipng</cod
 
 == Installation ==
 
-1. Upload the Slimage plugin to your WordPress plugins directory and activate it. 
-2. Go to Settings / Media and set your preferred options under "Compress images with Slimage"
+1. Install jpegoptim and optipng on your server.
+2. Make sure that shell_exec() is active on your php.ini (it usually is).
+3. Upload the Slimage plugin to your WordPress plugins directory and activate it. 
+4. Go to Settings / Media and check the "Enable Slimage" under "Compress images with Slimage". If jpegoptim and optipng are installed on a custom path on your server, set that path under "Server path for jpegoptim & optipng". 
 
 == Frequently Asked Questions ==
 
@@ -42,7 +44,7 @@ Yes. After you set your desired compression level on the plugin settings and sav
 
 = Can I set different compression level for a specific image? =
 
-Yes. On each image edit page there is an option "Override quality" which allows you to set your specific settings for that particular image.
+Yes. On each image edit page there is an option called "Override quality" which allows you to set your specific settings for that particular image. After changing your image settings, you still need to regenerate its thumbnails in order to run the compression. 
 
 = Can I use this plugin if I don't have jpegoptim or optipng installed on my server? =
 
@@ -58,10 +60,12 @@ The default extra arguments should be fine for most cases. If you really want to
 
 = Can I pass the Google Pagespeed test with that plugin? =
 
-Yes. But you might have to make some compromise on the quality of your photos. For JPEGs, setting the quality level to 50 or 60 is enough to pass the test on most cases. Depending on the complexity of the image, though, on some cases the quality loss might be visible to the naked eye. 
+Yes. But you might need to make some compromise on the quality of your photos. For JPEGs, setting the quality level to 50 or 60 is enough to pass the test on most cases. Depending on the complexity of the image, though, on some cases the quality loss might be visible to the naked eye so you might need to experiment with the level of quality. 
 
 == Screenshots ==
-1. Screenshot 1 description
+1. The main settings of the plugin, under Settings / Media.
+2. The option to override quality for a specific image under the image's edit page. 
+3. A sample of a few compression levels. The first image keeps the default WordPress compression and no Slimage compression applied (65.33KB). The rest of the samples are compressed with 60% (40.26KB), 50% (35.5KB), 40% (33.03KB), 30% (26.25KB), 20% (20.64KB) and 10% (13.3KB). 
 
 == Changelog ==
 
