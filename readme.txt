@@ -3,7 +3,7 @@ Contributors: gsarig
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WLR4KUNK7NZJE
 Tags: compress, image, optimization, optimize, optipng, jpegoptim, lossy, lossless
 Requires at least: 4.8
-Tested up to: 5.4
+Tested up to: 5.2
 Requires PHP: 5.6
 Stable tag: 1.0
 License: GPLv2 or later
@@ -40,11 +40,11 @@ To use the plugin you need to have <code>jpegoptim</code> and <code>optipng</cod
 
 = Can I bulk regenerate already uploaded images? =
 
-Yes. After you set your desired compression level on the plugin settings and save your changes, you can use the <code>wp media regenerate</code> command of <a href="https://wp-cli.org/" target="_blank">WP-CLI</a> to regenerate the thumbnails. If you don't feel comfortable with the command line and prefer to do it with a plugin, <a href="https://wordpress.org/plugins/force-regenerate-thumbnails/" target="_blank">Force Regenerate Thumbnails</a> and <a href="https://wordpress.org/plugins/ajax-thumbnail-rebuild/" target="_blank">AJAX Thumbnail Rebuild</a> have been tested and confirmed to play nice with Slimage.
+Yes. After you set your desired compression level on the plugin settings and save your changes, you can use the <code>wp media regenerate</code> command of the amazing <a href="https://wp-cli.org/" target="_blank">WP-CLI</a> to regenerate the thumbnails. If you don't feel comfortable with the command line and prefer to do it with a plugin, <a href="https://wordpress.org/plugins/force-regenerate-thumbnails/" target="_blank">Force Regenerate Thumbnails</a> and <a href="https://wordpress.org/plugins/ajax-thumbnail-rebuild/" target="_blank">AJAX Thumbnail Rebuild</a> have been tested and confirmed to play nice with Slimage.
 
 = Can I set different compression level for a specific image? =
 
-Yes. On each image edit page there is an option called "Override quality" which allows you to set your specific settings for that particular image. After changing your image settings, you will still need to regenerate its thumbnails in order to run the compression.
+Yes. On each image edit page there is an option called "Override quality" which allows you to set your specific settings for that particular image. After changing your image settings, you still need to regenerate its thumbnails in order to run the compression.
 
 = Can I use this plugin if I don't have jpegoptim or optipng installed on my server? =
 
@@ -52,7 +52,7 @@ If neither jpegoptim nor optipng exist on your server, then the plugin won't wor
 
 = Can I use this plugin if <code>shell_exec()</code> isn't enabled on my php.ini? =
 
-No. The plugin relies on the PHP <code>shell_exec()</code> function, which is by default enabled by most hosting companies. If, in your case, it is disabled, you will not be able to use it. Again, this will not break your site.
+No. The plugin relies on the PHP <code>shell_exec()</code> function which is by default enabled by most hosting companies. If, in your case, it is disabled, you will not be able to use it. Again, this will not break your site.
 
 = What extra arguments can I set? =
 
