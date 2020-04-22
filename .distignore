@@ -1,4 +1,6 @@
 /.wordpress-org
 /.git
+/.github
+/.idea
 .distignore
 README.md
