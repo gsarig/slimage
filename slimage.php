@@ -3,7 +3,7 @@
  * Plugin Name: Slimage
  * Plugin URI: https://wordpress.org/plugins/slimage/
  * Description: A WordPress plugin that uses jpegoptim and optipng to compress images during upload, allowing you to override the compression level and quality on a per-image basis.
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Giorgos Sarigiannidis
  * Author URI: https://www.gsarigiannidis.gr
  * License: GPL3
