@@ -44,7 +44,7 @@ Yes. After you set your desired compression level on the plugin settings and sav
 
 = Can I set different compression level for a specific image? =
 
-Yes. On each image edit page there is an option called "Override quality" which allows you to set your specific settings for that particular image. After changing your image settings, you still need to regenerate its thumbnails in order to run the compression.
+Yes. On each image edit page there is an option called "Override quality" which allows you to set your specific settings for that particular image. After changing your image settings, you will still need to regenerate its thumbnails in order to run the compression.
 
 = Can I use this plugin if I don't have jpegoptim or optipng installed on my server? =
 
