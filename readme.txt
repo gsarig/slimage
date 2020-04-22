@@ -52,7 +52,7 @@ If neither jpegoptim nor optipng exist on your server, then the plugin won't wor
 
 = Can I use this plugin if <code>shell_exec()</code> isn't enabled on my php.ini? =
 
-No. The plugin relies on the PHP <code>shell_exec()</code> function which is by default enabled by most hosting companies. If, in your case, it is disabled, you will not be able to use it. Again, this will not break your site.
+No. The plugin relies on the PHP <code>shell_exec()</code> function, which is by default enabled by most hosting companies. If, in your case, it is disabled, you will not be able to use it. Again, this will not break your site.
 
 = What extra arguments can I set? =
 
