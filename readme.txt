@@ -40,7 +40,7 @@ To use the plugin you need to have <code>jpegoptim</code> and <code>optipng</cod
 
 = Can I bulk regenerate already uploaded images? =
 
-Yes. After you set your desired compression level on the plugin settings and save your changes, you can use the <code>wp media regenerate</code> command of the amazing <a href="https://wp-cli.org/" target="_blank">WP-CLI</a> to regenerate the thumbnails. If you don't feel comfortable with the command line and prefer to do it with a plugin, <a href="https://wordpress.org/plugins/force-regenerate-thumbnails/" target="_blank">Force Regenerate Thumbnails</a> and <a href="https://wordpress.org/plugins/ajax-thumbnail-rebuild/" target="_blank">AJAX Thumbnail Rebuild</a> have been tested and confirmed to play nice with Slimage.
+Yes. After you set your desired compression level on the plugin settings and save your changes, you can use the <code>wp media regenerate</code> command of <a href="https://wp-cli.org/" target="_blank">WP-CLI</a> to regenerate the thumbnails. If you don't feel comfortable with the command line and prefer to do it with a plugin, <a href="https://wordpress.org/plugins/force-regenerate-thumbnails/" target="_blank">Force Regenerate Thumbnails</a> and <a href="https://wordpress.org/plugins/ajax-thumbnail-rebuild/" target="_blank">AJAX Thumbnail Rebuild</a> have been tested and confirmed to play nice with Slimage.
 
 = Can I set different compression level for a specific image? =
 
