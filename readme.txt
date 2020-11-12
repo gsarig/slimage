@@ -3,9 +3,9 @@ Contributors: gsarig
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WLR4KUNK7NZJE
 Tags: compress, image, optimization, optimize, optipng, jpegoptim, lossy, lossless
 Requires at least: 4.8
-Tested up to: 5.4
-Requires PHP: 5.6
-Stable tag: 1.0.1
+Tested up to: 5.6
+Requires PHP: 7.0
+Stable tag: 1.0.2
 License: GPLv2 or later
 
 A WordPress plugin that uses jpegoptim and optipng to compress images during upload, allowing you to override the compression level and quality on a per-image basis. It will compress the thumbnails that WordPress generates but will leave the original file intact, so that you can safely restore your changes if necessary. In order to use Slimage, you need to have jpegoptim and optipng installed on your server.
@@ -68,6 +68,9 @@ Yes. But you might need to make some compromise on the quality of your photos. F
 3. A sample of a few compression levels. The first image keeps the default WordPress compression and no Slimage compression applied (65.33KB). The rest of the samples are compressed with 60% (40.26KB), 50% (35.5KB), 40% (33.03KB), 30% (26.25KB), 20% (20.64KB) and 10% (13.3KB).
 
 == Changelog ==
+= 1.0.2 =
+* Check sizes existence to prevent PHP warning
+* CSS fixes
 
 = 1.0.1 =
 * Moved project to Github (https://github.com/gsarig/slimage).

@@ -28,7 +28,7 @@ class Compressor {
 			$original_path = realpath( get_attached_file( $attachment_id, true ) );
 			// Extract the full image filename.
 			$original_name = wp_basename( $original_path );
-			$sizes         = $metadata['sizes'];
+			$sizes         = isset( $metadata['sizes'] ) ? $metadata['sizes'] : '';
 
 			if ( $sizes ) {
 				foreach ( $sizes as $size => $meta ) {
@@ -38,12 +38,13 @@ class Compressor {
 
 					if ( $format === 'image/jpeg' && Helper::serverSupports( 'jpegoptim' ) ) {
 						$command = Helper::programPath( 'jpegoptim' ) . ' --max=' . $jpegoptim_level . ' ' . $jpegoptim_extras . ' ' . $thumb_path;
-					} elseif ( in_array( $format, [
-							'image/png',
-							'image/bmp',
-							'image/gif',
-							'image/tiff'
-						] ) && Helper::serverSupports( 'optipng' ) ) {
+					} elseif ( in_array( $format,
+							[
+								'image/png',
+								'image/bmp',
+								'image/gif',
+								'image/tiff',
+							] ) && Helper::serverSupports( 'optipng' ) ) {
 						$command = Helper::programPath( 'optipng' ) . ' -o' . $optipng_level . ' ' . $optipng_extras . ' ' . $thumb_path;
 					} else {
 						$command = null;

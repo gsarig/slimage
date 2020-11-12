@@ -1,8 +1,8 @@
 .media-modal tr[class^='compat-field-slimage_'] {
     display: none;
 }
+
 .slimage-description {
-    border-top: 1px solid #ccc;
     padding-top: 1rem;
 }
 
@@ -25,18 +25,25 @@
 tr.compat-field-slimage_quality input[type="number"] {
     max-width: 60px;
 }
+
 .slimage-server-path input[type="text"],
 .slimage-setting input[type="text"],
 tr.compat-field-slimage_extras input[type="text"] {
     width: 100%;
     max-width: 400px;
 }
+
 .slimage-server-path label {
     display: block;
 }
+
 .slimage-check input:disabled + label,
 .slimage-setting input:disabled + label {
     color: red;
+}
+
+tr.compat-field-slimage_override .label {
+    border-bottom: 1px solid #ccc;
 }
 
 tr.compat-field-slimage_override th,
@@ -48,20 +55,23 @@ tr.compat-field-slimage_quality,
 tr.compat-field-slimage_extras {
     display: none;
 }
+
 tr[class^='compat-field-slimage_'] th {
     vertical-align: top;
     text-align: left;
 }
+
 tr[class^='compat-field-slimage_'] .warning {
     background: #fff;
     border-left: 3px solid red;
-    display: block;
+    display: table-row;
     float: left;
     width: 100%;
     padding: 0 1rem;
     box-sizing: border-box;
     margin-top: 1rem;
 }
+
 tr.compat-field-slimage_quality.active,
 tr.compat-field-slimage_extras.active {
     display: table-row;
@@ -69,24 +79,20 @@ tr.compat-field-slimage_extras.active {
 
 tr.compat-field-slimage_quality th,
 tr.compat-field-slimage_quality td {
-    border-top: 1px solid #ccc;
     padding-top: 1rem;
 }
 
 tr.compat-field-slimage_quality th,
 tr.compat-field-slimage_extras th {
-    border-left: 1px solid #ccc;
     padding-left: 1rem;
 }
 
 tr.compat-field-slimage_quality td,
 tr.compat-field-slimage_extras td {
-    border-right: 1px solid #ccc;
     padding-right: 1rem;
 }
 
 tr.compat-field-slimage_extras th,
 tr.compat-field-slimage_extras td {
-    border-bottom: 1px solid #ccc;
     padding-bottom: 1rem;
 }
