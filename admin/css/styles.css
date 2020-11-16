@@ -1,5 +1,5 @@
 .media-modal tr[class^='compat-field-slimage_'] {
-    display: none;
+    display: none !important;
 }
 
 .slimage-description {
@@ -53,7 +53,7 @@ tr.compat-field-slimage_override td {
 
 tr.compat-field-slimage_quality,
 tr.compat-field-slimage_extras {
-    display: none;
+    display: none !important;
 }
 
 tr[class^='compat-field-slimage_'] th {
@@ -74,7 +74,7 @@ tr[class^='compat-field-slimage_'] .warning {
 
 tr.compat-field-slimage_quality.active,
 tr.compat-field-slimage_extras.active {
-    display: table-row;
+    display: table-row !important;
 }
 
 tr.compat-field-slimage_quality th,
