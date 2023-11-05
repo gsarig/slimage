@@ -3,7 +3,7 @@ Contributors: gsarig
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WLR4KUNK7NZJE
 Tags: compress, image, optimization, optimize, optipng, jpegoptim, lossy, lossless
 Requires at least: 4.8
-Tested up to: 6.1
+Tested up to: 6.4
 Requires PHP: 7.0
 Stable tag: 1.0.3
 License: GPLv2 or later
