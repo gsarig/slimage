@@ -162,7 +162,7 @@ class Options {
 
 	public function serverPath() {
 		$label = __( 'If you are certain that jpegoptim and optipng are installed on your server but you still have no access to the plugin\'s options, maybe they are located on a different path (it can happen on shared servers). If this is the case, declare the path here like for example: <code>/home/username/bin/</code>.', 'slimage' );
-		$val   = preg_replace( '/%/', '/', Helper::option( 'slimage_server_path' ) );
+		$val   = preg_replace( '/%/', '/', Helper::option( 'slimage_server_path' ) ?? '' );
 		echo '<input 
 	            name="slimage_server_path" 
 	            id="slimage_server_path" 
